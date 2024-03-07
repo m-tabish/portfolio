@@ -35,6 +35,7 @@ function Home() {
                         <SocialLink height={16} width={16} social_name={twitter} />
                         <SocialLink height={16} width={16} social_name={linkedIn} />
                     </div>
+                 <p className="lg:text-2xl text-xl items-center">Note: For UI designs kindly checkout this folder in the github repo:- <a  href="https://github.com/m-tabish/portfolio/tree/main/src/design" target='_blank' className="text-blue-400 text-2xl underline items-center ">Click Here</a></p>
                 </div>
             </div>
         </>
