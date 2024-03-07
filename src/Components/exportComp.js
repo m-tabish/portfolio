@@ -1,5 +1,5 @@
 import SocialLink from "./SocialLink";
 import Navbar from "./Navbar";
 import Btn from "./Btn"
-
-export  { SocialLink, Navbar,Btn };
+import Page from "./Page"
+export  { SocialLink, Navbar,Btn,Page };
