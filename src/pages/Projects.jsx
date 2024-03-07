@@ -1,5 +1,4 @@
-import { Navbar } from "../Components/exportComp"
-import home from "../assets/design/orange/home.png"
+import { Navbar } from "../Components/exportComp" 
 const Projects = () => {
     return (
         <>
