@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/portfolio/",
+  base: "/",
   plugins: [react()],
   server: {
     host: '192.168.29.217', // Change to your desired host
