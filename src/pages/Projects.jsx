@@ -1,4 +1,4 @@
-import { Navbar } from "../Components/exportComp.js"
+import Navbar from "../Components/Navbar"
 const Projects = () => {
     return (
         <>
@@ -9,7 +9,7 @@ const Projects = () => {
                 <div className=' w-full h-full flex flex-col gap-5 items-center'>
 
                     {/* Navbar */}
-                    {/* <Navbar /> */}
+                    <Navbar />
 
                     <div className="w-screen h-screen border-white border-2 grid  lg:grid-cols-2 gap-0 ">
                         <div className={`border-2  `}> </div>
