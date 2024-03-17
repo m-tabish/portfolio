@@ -5,8 +5,4 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: "/portfolio",
   plugins: [react()],
-  server: {
-    host: '192.168.29.217', // Change to your desired host
-    port: 3000, // Change to your desired port
-  },
 })
