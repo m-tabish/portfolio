@@ -1,3 +1,4 @@
+import DownloadBtn from "@/components/DownloadBtn";
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -6,12 +7,10 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-import { downloadResume } from "@/lib/utils";
-import { icons } from "lucide-react";
+import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Download } from "lucide-react";
-import DownloadBtn from "@/components/DownloadBtn";
+
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
@@ -229,6 +228,7 @@ export default function Page() {
 					</BlurFade>
 				</div>
 			</section>
+			<Analytics />
 		</main>
 	);
 }

@@ -44,7 +44,6 @@ export default function Navbar() {
 					className="mx-2 h-6 bg-black/60 dark:bg-white/60"
 				/>
 
-				
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger asChild>
