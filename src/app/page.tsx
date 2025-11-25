@@ -1,35 +1,44 @@
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import Navbar from "@/components/navbar";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-import  me  from "../data/me.jpg"
+import { downloadResume } from "@/lib/utils";
+import { icons } from "lucide-react";
 import Link from "next/link";
 import Markdown from "react-markdown";
-
+import { Download } from "lucide-react";
+import DownloadBtn from "@/components/DownloadBtn";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  return (
+	return (
 		<main className="flex flex-col min-h-[100dvh] space-y-10">
 			<section id="hero">
 				<div className="mx-auto w-full max-w-2xl space-y-8">
 					<div className="gap-2 flex justify-between">
-						<div className="flex-col flex flex-1 space-y-1.5">
-							<BlurFadeText
-								delay={BLUR_FADE_DELAY}
-								className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-2xl/none"
-								yOffset={8}
-								text={`Hi, I'm ${DATA.name.split(" ")[1]} 👋`}
-							/>
-							<BlurFadeText
-								className="max-w-[600px] md:text-xl"
-								delay={BLUR_FADE_DELAY}
-								text={DATA.description}
-							/>
+						<div className="flex-col flex flex-1 space-y-1.5 ">
+							<BlurFade>
+								<BlurFadeText
+									delay={BLUR_FADE_DELAY}
+									className="text-2xl font-bold tracking-tighter mx-auto
+										 sm:text-5xl xl:text-4xl/none inline-flex"
+									yOffset={8}
+									text={`Hi, I'm ${DATA.name.split(" ")[1]} 👋`}
+								/>
+								<Navbar />
+								{/* <BlurFadeText
+									className="max-w-[600px] text-sm md:text-xl text-white/50"
+									delay={BLUR_FADE_DELAY}
+									text={DATA.description}
+								/> */}
+								<BlurFade delay={BLUR_FADE_DELAY * 11}>
+									<DownloadBtn />
+								</BlurFade>
+							</BlurFade>
 						</div>
 						{/* Image */}
 						{/* <BlurFade delay={BLUR_FADE_DELAY}>
@@ -49,6 +58,7 @@ export default function Page() {
 				<BlurFade delay={BLUR_FADE_DELAY * 3}>
 					<h2 className="text-xl font-bold">About</h2>
 				</BlurFade>
+
 				<BlurFade delay={BLUR_FADE_DELAY * 4}>
 					<Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
 						{DATA.summary}
@@ -56,10 +66,11 @@ export default function Page() {
 				</BlurFade>
 			</section>
 
+			{/* projects */}
 			<section id="projects">
-				<div className="space-y-12 w-full py-12">
+				<div className="space-y-12 w-full py-12 ">
 					<BlurFade delay={BLUR_FADE_DELAY * 11}>
-						<div className="flex flex-col items-center justify-center space-y-4 text-center">
+						<div className="flex flex-col items-center justify-center space-y-4 text-center ">
 							<div className="space-y-2">
 								<div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
 									My Projects
@@ -67,7 +78,7 @@ export default function Page() {
 							</div>
 						</div>
 					</BlurFade>
-					<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+					<div className="grid grid-cols-1 gap-3 sm:grid-cols-2  max-w-[800px]  ">
 						{DATA.projects.map((project, id) => (
 							<BlurFade
 								key={project.title}
@@ -89,7 +100,7 @@ export default function Page() {
 				</div>
 			</section>
 
-    {/* Hackathon */}
+			{/* Hackathon */}
 			<section id="hackathons">
 				<div className="space-y-12 w-full py-12">
 					<BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -153,7 +164,9 @@ export default function Page() {
 					))}
 				</div>
 			</section> */}
-      
+
+			{/* education */}
+
 			<section id="education">
 				<div className="flex min-h-0 flex-col gap-y-3">
 					<BlurFade delay={BLUR_FADE_DELAY * 7}>
@@ -170,7 +183,7 @@ export default function Page() {
 								altText={education.school}
 								title={education.school}
 								subtitle={education.degree}
-								period={`${education.start} - ${education.end}`}
+								period={`${education.start}- ${education.end}`}
 							/>
 						</BlurFade>
 					))}
@@ -210,8 +223,7 @@ export default function Page() {
 									className="text-blue-500 hover:underline">
 									with a direct question on twitter
 								</Link>{" "}
-								and I&apos;ll respond whenever I can. I will ignore all
-								soliciting.
+								and I&apos;ll respond whenever I can.
 							</p>
 						</div>
 					</BlurFade>
